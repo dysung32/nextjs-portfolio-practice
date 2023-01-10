@@ -126,3 +126,55 @@ export const AddressText = styled.input`
   padding-left: 10px;
   margin-top: 15px;
 `;
+
+export const YoutubeBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+`;
+
+export const YoutubeLink = styled.input`
+  height: 40px;
+  border: 1px solid #bdbdbd;
+  padding-left: 10px;
+`;
+
+export const PicBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+`;
+
+export const Pictures = styled.div`
+  display: flex;
+  margin-top: 5px;
+`;
+
+export const Pic = styled.div`
+  width: 78px;
+  height: 78px;
+  background: #bdbdbd;
+  margin-right: 10px;
+`;
+
+export const MainSetting = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+`;
+
+export const SettingSelections = styled.div`
+  display: flex;
+  margin-top: 10px;
+`;
+
+export const Selection = styled.div`
+  display: flex;
+  margin-right: 10px;
+`;
+
+export const Radio = styled.input`
+  accent-color: #ffd600;
+  width: 15px;
+  height: 15px;
+`;
