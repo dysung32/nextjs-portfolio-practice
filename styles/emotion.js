@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
   padding: 30px 100px;
@@ -77,7 +77,7 @@ export const Content = styled.textarea`
   border: 1px solid #bdbdbd;
   padding-left: 10px;
   padding-top: 10px;
-  font-family: "Noto Sans CJK KR";
+  font-family: 'Noto Sans CJK KR';
   line-height: 24px;
   resize: none;
 `;
@@ -90,6 +90,7 @@ export const RegisterBtn = styled.button`
   font-weight: 700;
   border: none;
   margin: 70px auto;
+  cursor: pointer;
 `;
 
 export const OtherWrapper = styled.div`
@@ -118,6 +119,7 @@ export const AddressSearchBtn = styled.button`
   width: 124px;
   background: #000;
   color: #fff;
+  cursor: pointer;
 `;
 
 export const AddressText = styled.input`
@@ -177,4 +179,10 @@ export const Radio = styled.input`
   accent-color: #ffd600;
   width: 15px;
   height: 15px;
+`;
+
+export const Error = styled.div`
+  padding-top: 5px;
+  font-size: 14px;
+  color: red;
 `;

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Wrapper,
   Title,
@@ -29,9 +30,67 @@ import {
   SettingSelections,
   Selection,
   Radio,
-} from "../../../styles/registerPost";
+  Error
+} from '../../../styles/emotion';
 
 export default function registerPostPage() {
+  const [writer, setWriter] = useState("")
+  const [password, setPassword] = useState("")
+  const [title, setTitle] = useState("");
+  const [contents, setContents] = useState("")
+
+  const [writerError, setWriterError] = useState("")
+  const [passwordError, setPasswordError] = useState("")
+  const [titleError, setTitleError] = useState("")
+  const [contentsError, setContentsError] = useState("")
+
+  const onChangeWriter = (event) => {
+    setWriter(event.target.value)
+    // 작성자 란이 빈칸이면
+    if (event.target.value !== "") setWriterError("") // 에러메시지 발생 X
+  }
+
+  const onChangePassword = (event) => {
+    setPassword(event.target.value)
+    if(event.target.value !== ""){
+      setPasswordError("")
+    }
+  }
+
+  const onChangeTitle = (event) => {
+    setTitle(event.target.value)
+    if(event.target.value !== ""){
+      setTitleError("")
+    }
+  }
+
+  const onChangeContents = (event) => {
+    setContents(event.target.value)
+    if(event.target.value !== ""){
+      setContentsError("")
+    }
+  }
+
+  const onClickSubmit = () => {
+    if (!writer) {
+      setWriterError("작성자를 입력해주세요.")
+    }
+    if (!password) {
+      setPasswordError("비밀번호를 입력해주세요.")
+    }
+    if (!title) {
+      setTitleError("제목을 입력해주세요.");
+    }
+    if (!contents) {
+      setContentsError("내용을 입력해주세요.");
+    }
+    // 모든 값이 입력되었다면 게시글 정상 등록
+    if (writer && password && title && contents) {
+      alert("게시글이 등록되었습니다.");
+  }
+  }
+
+
   return (
     <Wrapper>
       <Title>게시물 등록</Title>
@@ -40,21 +99,25 @@ export default function registerPostPage() {
           <Label>
             작성자<Essential>*</Essential>
           </Label>
-          <User type="text" placeholder="이름을 적어주세요." />
+          <User type="text" onChange={onChangeWriter} placeholder="이름을 적어주세요." />
+        <Error>{writerError}</Error>
         </UserBox>
         <PasswordBox>
           <Label>비밀번호</Label>
-          <Password type="password" placeholder="비밀번호를 입력해주세요." />
+          <Password type="password" onChange={onChangePassword} placeholder="비밀번호를 입력해주세요." />
+          <Error>{passwordError}</Error>
         </PasswordBox>
       </UserWrapper>
       <ContentWrapper>
         <TitleBox>
           <Label>제목</Label>
-          <ContentTitle type="text" placeholder="제목을 작성해주세요." />
+          <ContentTitle type="text" onChange={onChangeTitle} placeholder="제목을 작성해주세요." />
+          <Error>{titleError}</Error>
         </TitleBox>
         <ContentBox>
           <Label>내용</Label>
-          <Content placeholder="내용을 작성해주세요." />
+          <Content onChange={onChangeContents} placeholder="내용을 작성해주세요." />
+          <Error>{contentsError}</Error>
         </ContentBox>
       </ContentWrapper>
       <OtherWrapper>
@@ -69,7 +132,10 @@ export default function registerPostPage() {
         </AddressBox>
         <YoutubeBox>
           <Label>유튜브</Label>
-          <YoutubeLink type="text" placeholder="링크를 복사해주세요."></YoutubeLink>
+          <YoutubeLink
+            type="text"
+            placeholder="링크를 복사해주세요."
+          ></YoutubeLink>
         </YoutubeBox>
         <PicBox>
           <Label>사진 첨부</Label>
@@ -93,7 +159,7 @@ export default function registerPostPage() {
           </SettingSelections>
         </MainSetting>
       </OtherWrapper>
-      <RegisterBtn>등록하기</RegisterBtn>
+      <RegisterBtn onClick={onClickSubmit}>등록하기</RegisterBtn>
     </Wrapper>
   );
 }
