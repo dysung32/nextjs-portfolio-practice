@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   padding: 30px 100px;
@@ -77,7 +77,7 @@ export const Content = styled.textarea`
   border: 1px solid #bdbdbd;
   padding-left: 10px;
   padding-top: 10px;
-  font-family: 'Noto Sans CJK KR';
+  font-family: "Noto Sans CJK KR";
   line-height: 24px;
   resize: none;
 `;
@@ -152,11 +152,28 @@ export const Pictures = styled.div`
   margin-top: 5px;
 `;
 
-export const Pic = styled.div`
+export const UploadBtn = styled.div`
   width: 78px;
   height: 78px;
   background: #bdbdbd;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-right: 10px;
+  cursor: pointer;
+`;
+
+export const PlusIcon = styled.div`
+  margin-top: 13px;
+  font-size: 20px;
+  color: #4f4f4f;
+`;
+
+export const UploadTxt = styled.div`
+  font-size: 12px;
+  font-weight: 500;
+  color: #4f4f4f;
 `;
 
 export const MainSetting = styled.div`
